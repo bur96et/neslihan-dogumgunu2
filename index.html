@@ -3,55 +3,88 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Neslihan Abla ♥</title>
+<title>Kadir Doğum Günü</title>
 <style>
   *{margin:0;padding:0;box-sizing:border-box}
-  body{background:linear-gradient(135deg,#ffeef8,#ffd1dc,#ff9ec1,#ff6b9d);height:100vh;overflow:hidden;display:flex;align-items:center;justify-content:center;position:relative;font-family:system-ui,sans-serif}
+  body{background:linear-gradient(135deg,#0f0526,#1a0033,#2a1a5e,#3d2a8d);height:100vh;overflow:hidden;display:flex;align-items:center;justify-content:center;position:relative;font-family:system-ui,sans-serif;color:#fff}
   .container{position:relative;z-index:10;text-align:center}
-  .foto{border-radius:50%;width:260px;height:260px;object-fit:cover;border:8px solid rgba(255,255,255,.4);box-shadow:0 20px 40px rgba(0,0,0,.5);transform:scale(0.9);opacity:0;transition:1.2s}
+  .foto{border-radius:50%;width:280px;height:280px;object-fit:cover;border:10px solid rgba(100,200,255,.3);box-shadow:0 20px 50px rgba(0,0,0,.8);transform:scale(0.9);opacity:0;transition:1.3s}
   .foto.show{transform:scale(1);opacity:1}
-  h1{color:#fff;font-size:clamp(36px,9vw,68px);font-weight:900;margin:20px 0 10px;text-shadow:0 6px 15px rgba(0,0,0,.5)}
-  p{color:#fff;font-size:clamp(20px,5vw,34px);text-shadow:0 4px 10px rgba(0,0,0,.4)}
+  h1{font-size:clamp(42px,11vw,82px);font-weight:900;margin:25px 0 15px;text-shadow:0 8px 25px #000}
+  p{font-size:clamp(22px,6vw,38px);text-shadow:0 4px 12px #000}
   .efekt{position:fixed;inset:0;pointer-events:none;z-index:5}
-  .k,.b{position:absolute;animation:u var(--d) linear forwards}
-  @keyframes u{0%{transform:translateY(110vh) scale(.3);opacity:0}12%{opacity:1}100%{transform:translateY(-120vh) scale(1.4) rotate(45deg);opacity:0}}
-  .ipucu{position:fixed;bottom:30px;left:50%;transform:translateX(-50%);background:#00000088;color:#fff;padding:14px 32px;border-radius:50px;font-size:17px;z-index:99}
+  .k{position:absolute;animation:u var(--d) linear forwards;font-size:clamp(28px,6vw,48px)}
+  @keyframes u{0%{transform:translateY(110vh) scale(.2);opacity:0}10%{opacity:1}100%{transform:translateY(-130vh) scale(1.6) rotate(90deg);opacity:0}}
+  .ipucu{position:fixed;bottom:90px;left:50%;transform:translateX(-50%);background:#0009;padding:16px 40px;border-radius:50px;font-size:19px;z-index:99}
+  
+  /* BUTONLAR */
+  #anaBtn{background:linear-gradient(45deg,#1e40af,#2563eb);color:white;padding:18px 45px;border:none;border-radius:50px;font-size:21px;font-weight:bold;box-shadow:0 15px 35px rgba(0,0,0,.7);position:fixed;bottom:20px;left:50%;transform:translateX(-50%);z-index:999;cursor:pointer}
+  #menu{display:none;margin-top:15px;text-align:center}
+  #menu button{display:block;width:310px;margin:15px auto;padding:18px;color:white;border:none;border-radius:50px;font-size:19px;font-weight:bold;box-shadow:0 12px 30px rgba(0,0,0,.6)}
+  #menu button:nth-child(1){background:#0d6efd}
+  #menu button:nth-child(2){background:#6c757d}
+  #menu button:nth-child(3){background:#198754}
+  #tek{display:none;position:fixed;inset:0;background:#000f;z-index:9999;align-items:center;justify-content:center;cursor:pointer}
+  #tek video,#tek img{max-width:96%;max-height:96%;border-radius:22px;box-shadow:0 0 80px rgba(100,150,255,.8)}
 </style>
 </head>
 <body>
 
 <div class="container">
-  <img src="foto.jpg" alt="Neslihan Abla" class="foto" id="foto"> <!-- BURAYA FOTOĞRAFIN ADINI YAZ -->
-  <h1>Doğum Günün Kutlu Olsun!</h1>
-  <p>♥ Seni çok seviyoruz, iyi ki varsın ♥</p>
+  <!-- 1. BURAYA KADİR'İN ANA FOTOĞRAFINI YÜKLE → dosya adı: kadir.jpg -->
+  <img src="kadir.jpg" alt="Kadir" class="foto" id="foto">
+  
+  <h1>DOĞUM GÜNÜN KUTLU OLSUN<br>KADİR!</h1>
+  <p>İyi ki varsın kardeşim</p>
 </div>
 
 <div class="efekt" id="kalp"></div>
-<div class="efekt" id="balon"></div>
-<div class="ipucu" id="ipucu">Ekrana dokun veya tıkla → Sürpriz başlasın!</div>
+<div class="ipucu" id="ipucu">Ekrana dokun → Parti başlasın!</div>
 
+<!-- ANA BUTON -->
+<button id="anaBtn">SÜRPRİZLER</button>
+
+<div id="menu">
+  <!-- 2. BURAYA VİDEOYU YÜKLE → dosya adı: video.mp4 -->
+  <button onclick="document.getElementById('tek').innerHTML='';document.getElementById('tek').style.display='flex'">Özel Video İzle</button>
+  
+  <!-- 3. AİLE FOTOĞRAFLARINI "aile" KLASÖRÜNE AT → otomatik galeri olur -->
+  <button onclick="window.open('https://bur96et.github.io/neslihan-dogumgunu/aile/','_blank')">Aile Fotoğrafları</button>
+  
+  <!-- 4. BURAYA SADECE KADİR'E ÖZEL TEK FOTOĞRAFI YÜKLE → dosya adı: tekfoto.jpg -->
+  <button onclick="document.getElementById('tek').innerHTML='<img src=&quot;tekfoto.jpg&quot;>';document.getElementById('tek').style.display='flex'">Sana Özel Fotoğraf</button>
+</div>
+
+<!-- TAM EKRAN GÖSTERİM (video veya fotoğraf buraya gelir) -->
+<div id="tek" onclick="this.style.display='none'"></div>
+
+<!-- MÜZİK (isteğe bağlı) → dosya adı: muzik.mp3 -->
 <audio id="s" loop preload="auto">
-  <source src="sesim.mp3" type="audio/mpeg"> <!-- ses dosyanın adını buraya yaz -->
+  <source src="muzik.mp3" type="audio/mpeg">
 </audio>
 
 <script>
-const K=document.getElementById('kalp'),B=document.getElementById('balon'),F=document.getElementById('foto'),I=document.getElementById('ipucu'),S=document.getElementById('s');
+const K=document.getElementById('kalp'),F=document.getElementById('foto'),I=document.getElementById('ipucu'),S=document.getElementById('s');
 let ok=false;
 function r(a,b){return Math.random()*(b-a)+a}
-function kalp(){let e=document.createElement('div');e.className='k';e.textContent='❤';e.style.left=r(0,100)+'%';e.style.setProperty('--d',r(3,6)+'s');e.style.color=['#ff6b9d','#ff8cb3','#ffa3c4','#ffb3d4','#ff9ec1','#ff77a9'][~~r(0,6)];K.appendChild(e);setTimeout(()=>e.remove(),7000)}
-function balon(){let e=document.createElement('div');e.className='b';e.textContent=['🎈','🎉','🎊','🎀','✨','🌸','💖'][~~r(0,7)];e.style.left=r(0,100)+'%';e.style.setProperty('--d',r(5,9)+'s');B.appendChild(e);setTimeout(()=>e.remove(),10000)}
-function patla(){for(let i=0;i<35;i++)kalp();for(let i=0;i<18;i++)balon()}
+function efekt(){let e=document.createElement('div');e.className='k';e.textContent=['★','✦','⚡','🔥','💥','🎉','🎊','✨','🦁','🚀'][~~r(0,10)];e.style.left=r(0,100)+'%';e.style.setProperty('--d',r(3,7)+'s');K.appendChild(e);setTimeout(()=>e.remove(),8000)}
+function patla(){for(let i=0;i<45;i++)efekt()}
 function baslat(){
   if(ok)return;ok=true;
   I.style.opacity=0;setTimeout(()=>I.remove(),600);
   F.classList.add('show');
   patla();setTimeout(patla,500);setTimeout(patla,1000);
-  setInterval(patla,1400);
+  setInterval(patla,1200);
   S.volume=0.7;S.play().catch(()=>{});
 }
 window.onload=()=>setTimeout(baslat,800);
 document.body.onclick=document.body.ontouchstart=()=>baslat();
+
+document.getElementById('anaBtn').onclick=function(e){
+  e.stopPropagation();
+  let m=document.getElementById('menu');
+  m.style.display=m.style.display==='block'?'none':'block';
+}
 </script>
 </body>
 </html>
-
